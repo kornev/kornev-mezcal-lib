@@ -1,0 +1,20 @@
+# -*- mode: gitignore -*-
+
+.*
+!.gitkeep
+
+!/.gitignore
+!/.gitattributes
+!/.gitmessage
+!/.sbtopts
+!/.scalafmt.conf
+!/.scalafix.conf
+
+/target
+
+/project/*
+!/project/Dependencies.scala
+!/project/JavaOptions.scala
+!/project/ScalaOptions.scala
+!/project/build.properties
+!/project/plugins.sbt
