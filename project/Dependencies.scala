@@ -3,8 +3,8 @@ import sbt._
 object Dependencies {
 
   val cassandra = {
-    val `DRIVER`              = "3.10.2"
-    val `NETTY`               = "4.1.59.Final"
+    val `DRIVER`              = "3.11.0"
+    val `NETTY`               = "4.1.65.Final"
     val `GUAVA`               = "30.1.1-jre"
     val `DROPWIZARD`          = "4.1.17"
     val `JACKSON-DATABIND`    = "2.7.9.7"
