@@ -10,3 +10,7 @@ developers := List(
 )
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 publishMavenStyle := true
+
+sonatypeCredentialHost := "s01.oss.sonatype.org"
+sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
+publishTo := sonatypePublishToBundle.value

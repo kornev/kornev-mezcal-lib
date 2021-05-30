@@ -19,7 +19,12 @@ Write the trace query information to the log output if tracing is enabled (as in
 
 ```text
 21/05/09 21:26:24 [INFO] [QueryTracePrinter] Tracing session: 0f905c80-b0f4-11eb-8753-f9c5ada0271a
-Execute: SELECT * FROM users WHERE id = ? AND name = ?; [30, 'Tervo']
+Execute: SELECT * FROM users WHERE id = ? AND name = ?;
+Bound: id = 30;
+Bound: name = 'Tervo';
+Per-statement: consistency_level = LOCAL_QUORUM;
+Per-statement: serial_consistency_level = SERIAL;
+Per-statement: page_size = 1;
 
 ------------------------------------------------------------------------+---------------+----------------+-------------
  activity                                                               | timestamp     | source         | elapsed time
@@ -39,14 +44,14 @@ See `QueryAsyncSpec.scala` for documentation.
 
 * Java 8, 11
 * Scala 2.13
-* Datastax Java Driver 3.10.2
+* Datastax Java Driver 3.11.0
 * Logging backend compatible with SLF4J
 
 A compatible logging backend is [Logback](http://logback.qos.ch), add it to your sbt build definition:
 
 ```scala
 val overrides = {
-  val `SLF4J` = "1.7.30"
+  val `SLF4J` = "1.7.31"
 
   List(
     "org.slf4j" % "slf4j-api" % `SLF4J`
@@ -70,8 +75,8 @@ SBT users may add this to their `Dependencies.scala`:
 
 ```scala
 val commons = {
-  val `MEZCAL` = "0.1"
-  val `NETTY`  = "4.1.59.Final"
+  val `MEZCAL` = "0.2"
+  val `NETTY`  = "4.1.65.Final"
   
   val driver = List(
     "com.ensime" %% "mezcal" % `MEZCAL`
@@ -86,3 +91,8 @@ val commons = {
   driver ::: epoll
 }
 ```
+
+## License
+
+Copyright (C) 2021 Vadim Kornev.  
+Distributed under the MIT License.

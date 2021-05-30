@@ -6,7 +6,7 @@
 !/.gitignore
 !/.gitattributes
 !/.gitmessage
-!/.sbtopts
+!/.jvmopts
 !/.scalafmt.conf
 !/.scalafix.conf
 
