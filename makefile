@@ -10,14 +10,14 @@ clean:
 	if [ -d "project/target"  ]; then rm --recursive project/target;  fi
 	if [ -d "project/project" ]; then rm --recursive project/project; fi
 
-style:
-	cs launch --jvm adopt:1.8.0-262 sbt -- scalafix scalafmt
-
 publish:
 	cs launch --jvm adopt:1.8.0-262 sbt -- publishSigned
 
 test:
 	cs launch --jvm adopt:1.8.0-262 sbt -- test
+
+style:
+	cs launch --jvm adopt:1.8.0-262 sbt -- scalafix scalafmt
 
 coverage:
 	cs launch --jvm adopt:1.8.0-262 sbt -- "set coverageEnabled := true" test coverageReport
