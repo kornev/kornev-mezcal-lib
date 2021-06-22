@@ -13,6 +13,9 @@ clean:
 publish:
 	cs launch --jvm adopt:1.8.0-262 sbt -- publishSigned
 
+release:
+	cs launch --jvm adopt:1.8.0-262 sbt -- sonatypeBundleRelease
+
 test:
 	cs launch --jvm adopt:1.8.0-262 sbt -- test
 
