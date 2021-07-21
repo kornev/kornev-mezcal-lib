@@ -1,28 +1,30 @@
 package com.ensime.mezcal.cluster
 
-import java.net.InetSocketAddress
-
 import scala.sys.{ addShutdownHook => shutdown }
 
 import com.codahale.metrics.jmx.JmxReporter
-import com.datastax.driver.core.{ Cluster, ConsistencyLevel, PlainTextAuthProvider, QueryOptions }
+import com.datastax.driver.core.Cluster
 import com.datastax.driver.extras.codecs.jdk8.{ LocalDateCodec, LocalTimeCodec }
 
 object ClusterManager {
 
-  def make(config: ClusterConfig): Cluster = {
+  def make(config: NodesConfig, localDc: String = "datacenter1"): Cluster = {
+    import ClusterSettings._
+
+    make(
+      contactPoints(config),
+      localDcLoadBalancing(localDc),
+      readTimeout100,
+      plainTextAuthProvider(config),
+      localQuorumConsistencyLevel
+    )
+  }
+
+  def make(settings: (Cluster.Builder => Unit)*): Cluster = {
 
     val cluster =
-      Cluster.builder
-        .addContactPointsWithPorts(
-          config.collect { case (address, port, _, _) => new InetSocketAddress(address, port) }: _*
-        )
-        .withAuthProvider(
-          config.collect {
-            case (_, _, username, password) => new PlainTextAuthProvider(username, password)
-          } head
-        )
-        .withQueryOptions((new QueryOptions).setConsistencyLevel(ConsistencyLevel.LOCAL_QUORUM))
+      settings
+        .foldLeft(Cluster.builder) { case (st, fn) => fn(st); st }
         .withoutJMXReporting()
         .build
 

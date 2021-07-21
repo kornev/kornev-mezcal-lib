@@ -5,12 +5,13 @@ object Dependencies {
   val cassandra = {
     val `DRIVER`              = "3.11.0"
     val `NETTY`               = "4.1.65.Final"
-    val `GUAVA`               = "30.1.1-jre"
     val `DROPWIZARD`          = "4.1.23"
+    val `GUAVA`               = "30.1.1-jre"
     val `JACKSON-DATABIND`    = "2.7.9.7"
     val `JACKSON-ANNOTATIONS` = "2.7.9"
     val `JNR-FFI`             = "2.1.16"
     val `JNR-POSIX`           = "3.0.61"
+    val `HDR-HISTOGRAM`       = "2.1.12"
     val `SLF4J`               = "1.7.31"
 
     val driver = List(
@@ -38,30 +39,22 @@ object Dependencies {
       "io.netty" % "netty-common"
     ) map (_ % `NETTY`)
 
-    val guava = List(
-      "com.google.guava" % "guava" % `GUAVA`
-    )
-
     val metrics = List(
       "io.dropwizard.metrics" % "metrics-core",
       "io.dropwizard.metrics" % "metrics-jmx"
     ) map (_ % `DROPWIZARD` exclude ("org.slf4j", "slf4j-api"))
 
-    val jnr = List(
-      "com.github.jnr" % "jnr-ffi"   % `JNR-FFI`,
-      "com.github.jnr" % "jnr-posix" % `JNR-POSIX`
-    )
-
-    val jackson = List(
+    val other = List(
+      "com.google.guava"           % "guava"               % `GUAVA`,
+      "com.github.jnr"             % "jnr-ffi"             % `JNR-FFI`,
+      "com.github.jnr"             % "jnr-posix"           % `JNR-POSIX`,
       "com.fasterxml.jackson.core" % "jackson-databind"    % `JACKSON-DATABIND` exclude ("com.fasterxml.jackson.core", "jackson-annotations"),
-      "com.fasterxml.jackson.core" % "jackson-annotations" % `JACKSON-ANNOTATIONS`
+      "com.fasterxml.jackson.core" % "jackson-annotations" % `JACKSON-ANNOTATIONS`,
+      "org.hdrhistogram"           % "HdrHistogram"        % `HDR-HISTOGRAM`,
+      "org.slf4j"                  % "slf4j-api"           % `SLF4J`
     )
 
-    val slf4j = List(
-      "org.slf4j" % "slf4j-api" % `SLF4J`
-    )
-
-    driver ::: netty ::: guava ::: metrics ::: jnr ::: jackson ::: slf4j
+    driver ::: netty ::: metrics ::: other
   }
 
   val overrides = Nil
@@ -75,7 +68,7 @@ object Dependencies {
   }
 
   val tests = {
-    val `EMBEDDED-CASSANDRA` = "4.0.3"
+    val `EMBEDDED-CASSANDRA` = "4.0.4"
     val `LOG4J`              = "1.2.17"
     val `SLF4J`              = "1.7.31"
     val `SCALATEST`          = "3.2.9"
