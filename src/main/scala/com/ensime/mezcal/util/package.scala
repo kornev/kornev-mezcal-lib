@@ -1,7 +1,6 @@
 package com.ensime.mezcal
 
 import java.io.Closeable
-
 import scala.sys.{ addShutdownHook => shutdown }
 
 package object util {

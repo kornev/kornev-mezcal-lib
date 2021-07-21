@@ -1,7 +1,6 @@
 package com.ensime.mezcal.session
 
 import java.io.Closeable
-
 import scala.concurrent.{ ExecutionContext, Future }
 
 import com.datastax.driver.core.{

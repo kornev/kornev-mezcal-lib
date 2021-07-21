@@ -1,7 +1,6 @@
 package com.ensime.mezcal.interop
 
 import java.util.concurrent.Executor
-
 import scala.concurrent.{ ExecutionContext, Future, Promise }
 
 import com.google.common.util.concurrent.{ FutureCallback, Futures, ListenableFuture }
