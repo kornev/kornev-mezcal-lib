@@ -51,7 +51,7 @@ A compatible logging backend is [Logback](http://logback.qos.ch), add it to your
 
 ```scala
 val overrides = {
-  val `SLF4J` = "1.7.31"
+  val `SLF4J` = "1.7.32"
 
   List(
     "org.slf4j" % "slf4j-api" % `SLF4J`
@@ -59,8 +59,8 @@ val overrides = {
 }
 
 val commons = {
-  val `LOGBACK`       = "1.2.3"
-  val `SCALA-LOGGING` = "3.9.3"
+  val `LOGBACK`       = "1.2.4"
+  val `SCALA-LOGGING` = "3.9.4"
 
   List(
     "ch.qos.logback"              % "logback-classic" % `LOGBACK`,
@@ -75,8 +75,8 @@ SBT users may add this to their `Dependencies.scala`:
 
 ```scala
 val commons = {
-  val `MEZCAL` = "0.2"
-  val `NETTY`  = "4.1.65.Final"
+  val `MEZCAL` = "0.4"
+  val `NETTY`  = "4.1.66.Final"
   
   val driver = List(
     "com.ensime" %% "mezcal" % `MEZCAL`

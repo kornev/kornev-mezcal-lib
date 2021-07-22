@@ -4,7 +4,7 @@ object Dependencies {
 
   val cassandra = {
     val `DRIVER`              = "3.11.0"
-    val `NETTY`               = "4.1.65.Final"
+    val `NETTY`               = "4.1.66.Final"
     val `DROPWIZARD`          = "4.1.23"
     val `GUAVA`               = "30.1.1-jre"
     val `JACKSON-DATABIND`    = "2.7.9.7"
@@ -12,7 +12,7 @@ object Dependencies {
     val `JNR-FFI`             = "2.1.16"
     val `JNR-POSIX`           = "3.0.61"
     val `HDR-HISTOGRAM`       = "2.1.12"
-    val `SLF4J`               = "1.7.31"
+    val `SLF4J`               = "1.7.32"
 
     val driver = List(
       "com.datastax.cassandra" % "cassandra-driver-core",
@@ -70,7 +70,7 @@ object Dependencies {
   val tests = {
     val `EMBEDDED-CASSANDRA` = "4.0.4"
     val `LOG4J`              = "1.2.17"
-    val `SLF4J`              = "1.7.31"
+    val `SLF4J`              = "1.7.32"
     val `SCALATEST`          = "3.2.9"
 
     List(
