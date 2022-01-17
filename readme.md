@@ -75,8 +75,8 @@ SBT users may add this to their `Dependencies.scala`:
 
 ```scala
 val commons = {
-  val `MEZCAL` = "0.4"
-  val `NETTY`  = "4.1.66.Final"
+  val `MEZCAL` = "0.5"
+  val `NETTY`  = "4.1.73.Final"
   
   val driver = List(
     "com.ensime" %% "mezcal" % `MEZCAL`
@@ -94,5 +94,5 @@ val commons = {
 
 ## License
 
-Copyright (C) 2021 Vadim Kornev.  
+Copyright (C) 2022 Vadim Kornev.  
 Distributed under the MIT License.

@@ -4,9 +4,9 @@ object Dependencies {
 
   val cassandra = {
     val `DRIVER`              = "3.11.0"
-    val `NETTY`               = "4.1.66.Final"
+    val `NETTY`               = "4.1.73.Final"
     val `DROPWIZARD`          = "4.1.23"
-    val `GUAVA`               = "30.1.1-jre"
+    val `GUAVA`               = "31.0.1-jre"
     val `JACKSON-DATABIND`    = "2.7.9.7"
     val `JACKSON-ANNOTATIONS` = "2.7.9"
     val `JNR-FFI`             = "2.1.16"
@@ -68,10 +68,10 @@ object Dependencies {
   }
 
   val tests = {
-    val `EMBEDDED-CASSANDRA` = "4.0.4"
+    val `EMBEDDED-CASSANDRA` = "4.0.6"
     val `LOG4J`              = "1.2.17"
     val `SLF4J`              = "1.7.32"
-    val `SCALATEST`          = "3.2.9"
+    val `SCALATEST`          = "3.2.10"
 
     List(
       "com.github.nosan" % "embedded-cassandra" % `EMBEDDED-CASSANDRA` % Test,

@@ -8,7 +8,7 @@ ThisBuild / scalafixDependencies ++= rules
 lazy val root = (project in file("."))
   .settings( // main
     name := "mezcal",
-    scalaVersion := "2.13.6",
+    scalaVersion := "2.13.8",
     scalacOptions ++= scalaCompilerOptions,
     conflictManager := ConflictManager.strict,
     libraryDependencies ++= cassandra ::: tests,

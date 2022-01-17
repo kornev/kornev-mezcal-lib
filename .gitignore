@@ -2,6 +2,7 @@
 
 .*
 !.gitkeep
+!.keep
 
 !/.gitignore
 !/.gitattributes

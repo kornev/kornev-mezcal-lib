@@ -1,5 +1,5 @@
-.PHONY: all clean publish test style coverage
-.SILENT:    clean publish test style coverage
+.PHONY: all clean publish release test style coverage
+.SILENT:    clean publish release test style coverage
 
 .DEFAULT: all
 
